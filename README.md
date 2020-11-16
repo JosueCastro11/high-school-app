@@ -2,9 +2,19 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Prerequisites
+
+Download
+[NodeJS](https://nodejs.org/es/download/)
+[Yarn](https://classic.yarnpkg.com/en/docs/install/#windows-stable)
+
 ## Available Scripts
 
 In the project directory, you can run:
+
+### `yarn`
+
+Run this command to download the dependencies
 
 ### `yarn start`
 
