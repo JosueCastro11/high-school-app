@@ -23,6 +23,10 @@ let emptyRaceData = {
 function RacerApp() {
     let [raceData, setRaceData] = React.useState<RaceData>(emptyRaceData);
     let [showData, setShowData] = React.useState<boolean>(false);
+    
+    let [nombre, setNombre] = React.useState<string>("");
+    let [telefono, setTelefono] = React.useState<string>("");
+    let [fechaNacimiento, setFechaNacimiento] = React.useState<string>("");
 
     async function requestData() {
         let results = await axios.get("http://ergast.com/api/f1/2004/1/results.json");
@@ -40,6 +44,23 @@ function RacerApp() {
 
             setRaceData({ circuit, racers, series, round, season });
         }
+    }
+
+    function mostrarDatos() {
+        console.log(nombre + " " + telefono + " " + fechaNacimiento);
+    }
+
+    function actualizarNombre(event: any) {
+        setNombre(nombre + event.nativeEvent.data)
+        console.log(event)
+    }
+
+    function actualizarTel(event: any) {
+        setTelefono(telefono + event.nativeEvent.data)
+    }
+
+    function actualizarFN(event: any) {
+        setFechaNacimiento(fechaNacimiento + event.nativeEvent.data)
     }
 
     return (
@@ -63,6 +84,22 @@ function RacerApp() {
                     })}
                 </div>
             }
+
+            <div>
+                Nombre: 
+                <input type="text" onChange={(event) => actualizarNombre(event)} />
+            </div>
+            <div>
+                Telefono: 
+                <input type="text" onChange={(event) => actualizarTel(event)} />
+            </div>
+            <div>
+                Fecha Nacimiento: 
+                <input type="text" onChange={(event) => actualizarFN(event)} />
+            </div>
+            <div className="Button" onClick={mostrarDatos}>
+                Solicitar Datos
+            </div>
         </div>
     );
 }

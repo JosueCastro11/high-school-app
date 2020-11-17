@@ -16,8 +16,13 @@ export interface IRacer {
 }
 
 function Racer({ racer }: IRacerProps) {
+
+  function racerClick() {
+    alert(racer.givenName + ' ' + racer.familyName);
+  }
+
   return (
-    <div className="Racer">
+    <div className="Racer" onClick={racerClick}>
       <a href={racer.url}>{racer.code} {racer.givenName} {racer.familyName} {racer.dateOfBirth} {racer.nationality} {racer.driverId}</a>
     </div>
   );
